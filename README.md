@@ -30,6 +30,7 @@ Then, you can run the app as follows:
 $ java -jar target/spring-cloud-kubernetes-config-server-sample-0.0.1-SNAPSHOT.jar
 ```
 
+
 You can test the property values by typing the following command
 
 curl --location 'http://localhost:8080/api/contact-info'
