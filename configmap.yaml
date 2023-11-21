@@ -1,0 +1,64 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: account
+  namespace: default
+data:
+  application.yml: |-
+    build:
+      version: "3.0"
+
+    account:
+      message: "Welcome to EazyBank account related local APIs "
+      contactDetails:
+        name: "John Doe - Developer"
+        email: "john@eazybank.com"
+      onCallSupport:
+        - (555) 555-1234
+        - (555) 523-1345
+    ---
+    spring:
+      config:
+        activate:
+          on-profile: qa
+    build:
+      version: "2.0"
+
+    account:
+      message: "Welcome to EazyBank account related QA APIs "
+      contactDetails:
+        name: "Smitha Ray - QA Lead"
+        email: "smitha@eazybank.com"
+      onCallSupport:
+        - (666) 265-3765
+        - (666) 734-8371
+    ---
+    spring:
+      config:
+        activate:
+          on-profile: prod
+
+    build:
+      version: "1.0"
+
+    account:
+      message: "Welcome to EazyBank account related production APIs "
+      contactDetails:
+        name: "Reine Aishwarya - Product Owner"
+        email: "prodsmitha@eazybank.com"
+      onCallSupport:
+        - (453) 392-4829
+        - (236) 203-0384
+    ---
+    spring:
+      config:
+        activate:
+          on-profile: k8s
+    account:
+      message: "Welcome to EazyBank account related kubernetes APIs "
+      contactDetails:
+        name: "Reine Aishwarya - Product Owner"
+        email: "k8ssmitha@eazybank.com"
+      onCallSupport:
+        - (453) 392-4829
+        - (236) 203-0384
